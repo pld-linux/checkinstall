@@ -35,7 +35,6 @@ sed -e "s|/usr/local|%{_prefix}|" < foo > checkinstall
 
 install {checkinstall,makepak} $RPM_BUILD_ROOT%{_sbindir}
 install checkinstallrc 	$RPM_BUILD_ROOT%{_libdir}/checkinstall
-gzip -9nfr doc-pak/* 
 
 %clean
 rm -rf $RPM_BUILD_ROOT
