@@ -2,7 +2,7 @@
 Summary:	CheckInstall installations tracker, version 1.4.1
 Summary(pl):	Proste narzêdzie do tworzenia i zarzadzania pakietami (.tgz, .rpm, .deb)
 Name:		checkinstall
-Version:	1.4.1
+Version:	1.5.0
 Release:	1
 License:	GPL
 Group:		Development
@@ -20,14 +20,13 @@ CheckInstall keeps track of all the files created or modified by your
 installation script ("make install" "make install_modules", "setup",
 etc), builds a standard binary package and installs it in your system
 giving you the ability to uninstall it with your distribution's
-standard package management utilities. (deb isn't supported yet)
+standard package management utilities.
 
 %description -l pl
 Program do ¶ledzenia modyfikacji robionych przez skrypty instalacyjne
 ("make install", "setup", itp), potrafi zbudowaæ standartow± paczkê i
 zainstalowaæ j± w twoim systemie z mo¿liwo¶ci± odinstalowania jej
-narzêdziami dostêpnymi w twojej dystrybucji (rpm, deb, tgz). (deb nie
-jest jeszcze obslugiwany)
+narzêdziami dostêpnymi w twojej dystrybucji (obsluguje rpm, deb, tgz). 
 
 %prep
 %setup -q 
