@@ -1,8 +1,8 @@
-%define		iw_version	0.6.1
-Summary:	CheckInstall installations tracker, version 1.4.1
+%define		iw_version	0.6.3
+Summary:	CheckInstall installations tracker
 Summary(pl):	Proste narzÍdzie do tworzenia i zarzadzania pakietami (.tgz, .rpm, .deb)
 Name:		checkinstall
-Version:	1.5.0
+Version:	1.5.1
 Release:	1
 License:	GPL
 Group:		Development
@@ -12,6 +12,7 @@ Group(pl):	Programowanie
 Group(pt_BR):	Desenvolvimento
 Group(ru):	Ú¡⁄“¡¬œ‘À¡
 Group(uk):	Úœ⁄“œ¬À¡
+Requires:	bash
 Source0:	http://asic-linux.com.mx/~izto/%{name}-%{version}.tgz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,9 +39,18 @@ narzÍdziami dostÍpnymi w twojej dystrybucji (obsluguje rpm, deb, tgz).
 rm -rf $RPM_BUILD_ROOT
 mkdir $RPM_BUILD_ROOT%{_prefix}/{bin,sbin,lib/checkinstall} -p
 
+sed -e "s|#PREFIX#|%{_prefix}|" < installwatch-%{iw_version}/installwatch > installwatch
+
+sed -e "s|INSTALLWATCH_PREFIX=\"/usr/local\"|INSTALLWATCH_PREFIX=\"%{_prefix}\"|" \
+	< checkinstallrc > foo
+mv foo checkinstallrc
+
+sed -e "s|#\!/bin/sh|#\!/bin/bash|" < checkinstall > foo
+sed -e "s|/usr/local|%{_prefix}|" < foo > checkinstall
+
 install {checkinstall,makepak} $RPM_BUILD_ROOT%{_sbindir}
 install checkinstallrc 	$RPM_BUILD_ROOT%{_libdir}/checkinstall
-install installwatch-%{iw_version}/installwatch $RPM_BUILD_ROOT%{_bindir}
+install installwatch $RPM_BUILD_ROOT%{_bindir}
 install installwatch-%{iw_version}/installwatch.so $RPM_BUILD_ROOT%{_libdir}
 gzip -9nfr doc-pak/* 
 
@@ -49,5 +59,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%{_prefix}/*
 %doc doc-pak
+%attr(755,root,root) %{_bindir}/installwatch
+%attr(755,root,root) %{_sbindir}/checkinstall
+%attr(755,root,root) %{_sbindir}/makepak
+%config %{_libdir}/checkinstall/checkinstallrc
+%{_libdir}/installwatch.so
