@@ -8,6 +8,7 @@ Group:		Development
 Requires:	bash
 Requires:	installwatch >= 0.6.3
 Source0:	http://asic-linux.com.mx/~izto/%{name}-%{version}.tgz
+# Source0-md5:	dd418f56c483014f5759b09aa59ea42d
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
