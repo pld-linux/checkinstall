@@ -20,7 +20,7 @@ standard package management utilities.
 
 %description -l pl
 Program do ¶ledzenia modyfikacji robionych przez skrypty instalacyjne
-("make install", "setup", itp), potrafi zbudowaæ standartow± paczkê i
+("make install", "setup", itp), potrafi zbudowaæ standardow± paczkê i
 zainstalowaæ j± w twoim systemie z mo¿liwo¶ci± odinstalowania jej
 narzêdziami dostêpnymi w twojej dystrybucji (obs³uguje rpm, deb, tgz).
 
