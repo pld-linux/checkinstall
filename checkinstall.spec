@@ -22,10 +22,10 @@ standard package management utilities.
 Program do ¶ledzenia modyfikacji robionych przez skrypty instalacyjne
 ("make install", "setup", itp), potrafi zbudowaæ standartow± paczkê i
 zainstalowaæ j± w twoim systemie z mo¿liwo¶ci± odinstalowania jej
-narzêdziami dostêpnymi w twojej dystrybucji (obs³uguje rpm, deb, tgz). 
+narzêdziami dostêpnymi w twojej dystrybucji (obs³uguje rpm, deb, tgz).
 
 %prep
-%setup -q 
+%setup -q
 
 %install
 rm -rf $RPM_BUILD_ROOT
