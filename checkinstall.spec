@@ -6,12 +6,6 @@ Version:	1.5.1
 Release:	1
 License:	GPL
 Group:		Development
-Group(de):	Entwicklung
-Group(es):	Desarrollo
-Group(pl):	Programowanie
-Group(pt_BR):	Desenvolvimento
-Group(ru):	Разработка
-Group(uk):	Розробка
 Requires:	bash
 Source0:	http://asic-linux.com.mx/~izto/%{name}-%{version}.tgz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
