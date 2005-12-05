@@ -1,14 +1,15 @@
 Summary:	CheckInstall installations tracker
 Summary(pl):	Proste narzêdzie do tworzenia i zarz±dzania pakietami (.tgz, .rpm, .deb)
 Name:		checkinstall
-Version:	1.5.1
-Release:	2
+Version:	1.6.0
+Release:	1
 License:	GPL
-Group:		Development
+Group:		Base/Utilities
+Source0:	http://checkinstall.izto.org/files/source/%{name}-%{version}.tgz
+# Source0-md5:	dd418f56c483014f5759b09aa59ea42d
+URL:		http://checkinstall.izto.org/
 Requires:	bash
 Requires:	installwatch >= 0.6.3
-Source0:	http://asic-linux.com.mx/~izto/%{name}-%{version}.tgz
-# Source0-md5:	dd418f56c483014f5759b09aa59ea42d
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,20 +30,20 @@ narzêdziami dostêpnymi w twojej dystrybucji (obs³uguje rpm, deb, tgz).
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir $RPM_BUILD_ROOT%{_prefix}/{bin,sbin,lib/checkinstall} -p
+install -d $RPM_BUILD_ROOT{%{_sbindir},%{_libdir}/checkinstall}
 
 sed -e "s|#\!/bin/sh|#\!/bin/bash|" < checkinstall > foo
 sed -e "s|/usr/local|%{_prefix}|" < foo > checkinstall
 
 install {checkinstall,makepak} $RPM_BUILD_ROOT%{_sbindir}
-install checkinstallrc 	$RPM_BUILD_ROOT%{_libdir}/checkinstall
+install checkinstallrc-dist $RPM_BUILD_ROOT%{_libdir}/checkinstall/checkinstallrc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc doc-pak
+%doc BUGS CREDITS Changelog FAQ NLS_SUPPORT README RELNOTES TODO
 %attr(755,root,root) %{_sbindir}/checkinstall
 %attr(755,root,root) %{_sbindir}/makepak
 %config %{_libdir}/checkinstall/checkinstallrc
