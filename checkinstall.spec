@@ -5,9 +5,9 @@ Version:	1.6.0
 Release:	1
 License:	GPL
 Group:		Base/Utilities
-Source0:	http://checkinstall.izto.org/files/source/%{name}-%{version}.tgz
-# Source0-md5:	dd418f56c483014f5759b09aa59ea42d
-URL:		http://checkinstall.izto.org/
+Source0:	http://asic-linux.com.mx/~izto/checkinstall/files/source/%{name}-%{version}.tgz
+# Source0-md5:	41c1be61199406edf2e3ee92f2007fe5
+URL:		http://asic-linux.com.mx/~izto/checkinstall/
 Requires:	bash
 Requires:	installwatch >= 0.6.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
