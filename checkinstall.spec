@@ -8,6 +8,7 @@ Group:		Base/Utilities
 Source0:	http://asic-linux.com.mx/~izto/checkinstall/files/source/%{name}-%{version}.tgz
 # Source0-md5:	41c1be61199406edf2e3ee92f2007fe5
 URL:		http://asic-linux.com.mx/~izto/checkinstall/
+BuildRequires:	sed >= 4.0
 Requires:	bash
 Requires:	installwatch >= 0.6.3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -32,8 +33,8 @@ narzêdziami dostêpnymi w twojej dystrybucji (obs³uguje rpm, deb, tgz).
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sbindir},%{_libdir}/checkinstall}
 
-sed -e "s|#\!/bin/sh|#\!/bin/bash|" < checkinstall > foo
-sed -e "s|/usr/local|%{_prefix}|" < foo > checkinstall
+%{__sed} -i "s|#\!/bin/sh|#\!/bin/bash|" checkinstall
+%{__sed} -i "s|/usr/local|%{_prefix}|" checkinstall{,rc-dist}
 
 install {checkinstall,makepak} $RPM_BUILD_ROOT%{_sbindir}
 install checkinstallrc-dist $RPM_BUILD_ROOT%{_libdir}/checkinstall/checkinstallrc
