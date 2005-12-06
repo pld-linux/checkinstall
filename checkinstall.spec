@@ -11,6 +11,7 @@ URL:		http://asic-linux.com.mx/~izto/checkinstall/
 BuildRequires:	sed >= 4.0
 Requires:	bash
 Requires:	installwatch >= 0.6.3
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,13 +32,14 @@ narzêdziami dostêpnymi w twojej dystrybucji (obs³uguje rpm, deb, tgz).
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_sbindir},%{_libdir}/checkinstall}
+install -d $RPM_BUILD_ROOT{%{_sbindir},%{_sysconfdir}}
 
 %{__sed} -i "s|#\!/bin/sh|#\!/bin/bash|" checkinstall
 %{__sed} -i "s|/usr/local|%{_prefix}|" checkinstall{,rc-dist}
+%{__sed} -i "s|/usr/lib/checkinstall/checkinstallrc|%{_sysconfdir}/checkinstallrc|g" checkinstall
 
 install {checkinstall,makepak} $RPM_BUILD_ROOT%{_sbindir}
-install checkinstallrc-dist $RPM_BUILD_ROOT%{_libdir}/checkinstall/checkinstallrc
+install checkinstallrc-dist $RPM_BUILD_ROOT%{_sysconfdir}/checkinstallrc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -47,4 +49,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc BUGS CREDITS Changelog FAQ NLS_SUPPORT README RELNOTES TODO
 %attr(755,root,root) %{_sbindir}/checkinstall
 %attr(755,root,root) %{_sbindir}/makepak
-%config %{_libdir}/checkinstall/checkinstallrc
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/checkinstallrc
