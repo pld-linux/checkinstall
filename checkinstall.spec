@@ -3,7 +3,7 @@ Summary(pl):	Proste narzêdzie do tworzenia i zarz±dzania pakietami (.tgz, .rpm, 
 Name:		checkinstall
 Version:	1.6.0
 Release:	1
-License:	GPL
+License:	GPL v2
 Group:		Base/Utilities
 Source0:	http://asic-linux.com.mx/~izto/checkinstall/files/source/%{name}-%{version}.tgz
 # Source0-md5:	41c1be61199406edf2e3ee92f2007fe5
@@ -38,7 +38,7 @@ install -d $RPM_BUILD_ROOT{%{_sbindir},%{_sysconfdir}}
 %{__sed} -i "s|/usr/local|%{_prefix}|" checkinstall{,rc-dist}
 %{__sed} -i "s|/usr/lib/checkinstall/checkinstallrc|%{_sysconfdir}/checkinstallrc|g" checkinstall
 
-install {checkinstall,makepak} $RPM_BUILD_ROOT%{_sbindir}
+install checkinstall makepak $RPM_BUILD_ROOT%{_sbindir}
 install checkinstallrc-dist $RPM_BUILD_ROOT%{_sysconfdir}/checkinstallrc
 
 %clean
