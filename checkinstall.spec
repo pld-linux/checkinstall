@@ -1,5 +1,5 @@
 Summary:	CheckInstall installations tracker
-Summary(pl.UTF-8):   Proste narzędzie do tworzenia i zarządzania pakietami (.tgz, .rpm, .deb)
+Summary(pl.UTF-8):	Proste narzędzie do tworzenia i zarządzania pakietami (.tgz, .rpm, .deb)
 Name:		checkinstall
 Version:	1.6.0
 Release:	1
