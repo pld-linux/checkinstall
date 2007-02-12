@@ -1,5 +1,5 @@
 Summary:	CheckInstall installations tracker
-Summary(pl):	Proste narzêdzie do tworzenia i zarz±dzania pakietami (.tgz, .rpm, .deb)
+Summary(pl.UTF-8):   Proste narzÄ™dzie do tworzenia i zarzÄ…dzania pakietami (.tgz, .rpm, .deb)
 Name:		checkinstall
 Version:	1.6.0
 Release:	1
@@ -21,11 +21,11 @@ etc), builds a standard binary package and installs it in your system
 giving you the ability to uninstall it with your distribution's
 standard package management utilities.
 
-%description -l pl
-Program do ¶ledzenia modyfikacji robionych przez skrypty instalacyjne
-("make install", "setup", itp), potrafi zbudowaæ standardow± paczkê i
-zainstalowaæ j± w twoim systemie z mo¿liwo¶ci± odinstalowania jej
-narzêdziami dostêpnymi w twojej dystrybucji (obs³uguje rpm, deb, tgz).
+%description -l pl.UTF-8
+Program do Å›ledzenia modyfikacji robionych przez skrypty instalacyjne
+("make install", "setup", itp), potrafi zbudowaÄ‡ standardowÄ… paczkÄ™ i
+zainstalowaÄ‡ jÄ… w twoim systemie z moÅ¼liwoÅ›ciÄ… odinstalowania jej
+narzÄ™dziami dostÄ™pnymi w twojej dystrybucji (obsÅ‚uguje rpm, deb, tgz).
 
 %prep
 %setup -q
