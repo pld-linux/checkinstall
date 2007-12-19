@@ -1,12 +1,12 @@
 Summary:	CheckInstall installations tracker
 Summary(pl.UTF-8):	Proste narzędzie do tworzenia i zarządzania pakietami (.tgz, .rpm, .deb)
 Name:		checkinstall
-Version:	1.6.0
+Version:	1.6.1
 Release:	1
 License:	GPL v2
 Group:		Base/Utilities
 Source0:	http://asic-linux.com.mx/~izto/checkinstall/files/source/%{name}-%{version}.tgz
-# Source0-md5:	41c1be61199406edf2e3ee92f2007fe5
+# Source0-md5:	1ae49645d6d16efac79ac67b84bfb419
 URL:		http://asic-linux.com.mx/~izto/checkinstall/
 BuildRequires:	sed >= 4.0
 Requires:	bash
